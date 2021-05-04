@@ -42,9 +42,10 @@ undeploy | un-deploy application on AWS
 bash | enter bash mode on `app` docker-instance
 migrate | perform initials database operations (locally)
 migrate-remote | perform initials database operations (remote)
-build | crete a docker instances
+build | crete a docker containers
 install | install all dependencies
 test | execute all tests
+stop | stop all docker containers
 
 ---
 
