@@ -34,14 +34,15 @@ class ProductControllerTest extends TestCase
         $data = [
             'name' => $this->faker->sentence,
             'quantity' => 2,
-            'category_id' => Category::factory()->create()->id
+            'category_id' => $product->category_id
         ];
 
         $this->json('PUT','/products/' . $product->id, $data)
             ->assertStatus(200)
-            ->assertJson([
+            ->assertJsonFragment([
                 'name' => $data['name'],
-                'quantity' => $product->quantity + $data['quantity']
+                'quantity' => (string) ($product->quantity + $data['quantity']),
+                'category_id' => (string) $data['category_id'],
             ]);
     }
 

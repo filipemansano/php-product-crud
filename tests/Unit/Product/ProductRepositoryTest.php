@@ -1,18 +1,19 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\Product;
 
 use App\Models\Category;
 use App\Models\Product;
 use App\Repositores\Eloquent\ProductRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ProductRepositoryTest extends TestCase
 {
-    use WithFaker;
+    use RefreshDatabase, WithFaker;
 
     /** @test */
     public function it_can_delete_the_product()

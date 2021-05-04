@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\Category;
 
 use App\Http\Requests\CategoryFormRequest;
 use Faker\Factory;
