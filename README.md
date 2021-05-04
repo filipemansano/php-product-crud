@@ -51,3 +51,6 @@ stop | stop all docker containers
 
 ## Documentation
 Run application and acess [this link](http://localhost:8000/docs/index.html).
+
+## Tests
+to run tests execute command: `make test`
