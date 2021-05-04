@@ -37,11 +37,13 @@ class ProductControllerTest extends TestCase
             'category_id' => $product->category_id
         ];
 
+        $expectedQuantity = $product->quantity !== $data['quantity'] ? $product->quantity + $data['quantity'] : $product->quantity;
+
         $this->json('PUT','/products/' . $product->id, $data)
             ->assertStatus(200)
             ->assertJsonFragment([
                 'name' => $data['name'],
-                'quantity' => (string) ($product->quantity + $data['quantity']),
+                'quantity' => (string) $expectedQuantity,
                 'category_id' => (string) $data['category_id'],
             ]);
     }

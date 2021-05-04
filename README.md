@@ -22,14 +22,14 @@ for data storage the relational database `MySQL 8` was used
 ## Install and configure
 
 
-Fist clone repository
+First clone repository
 ```bash
 git clone https://github.com/filipemansano/php-product-crud.git
 ```
 
 > It's necessary have the [docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/install/) installed.
 
-start a docker-machine and install dependencies
+now run command below to start a docker-machine and install the dependencies
 ```bash
 make build && make install && make migrate
 ```

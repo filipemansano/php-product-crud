@@ -40,9 +40,11 @@ class ProductRepositoryTest extends TestCase
         $productRepo = new ProductRepository($product);
         $update = $productRepo->update($data, $product->id);
 
+        $expectedQuantity = $product->quantity !== $data['quantity'] ? $product->quantity + $data['quantity'] : $product->quantity;
+
         $this->assertInstanceOf(Product::class, $update);
         $this->assertEquals($data['name'], $update->name);
-        $this->assertEquals($product->quantity + $data['quantity'], $update->quantity);
+        $this->assertEquals($expectedQuantity, $update->quantity);
         $this->assertEquals($data['category_id'], $update->category_id);
     }
 
