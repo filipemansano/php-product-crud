@@ -39,7 +39,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryFormRequest $request)
     {
-        return $this->entity->store($request);
+        return $this->entity->store($request->all());
     }
 
     /**
@@ -62,7 +62,7 @@ class CategoryController extends Controller
      */
     public function update(CategoryFormRequest $request, string $id)
     {
-        return $this->entity->update($request, (int) $id);
+        return $this->entity->update($request->all(), (int) $id);
     }
 
     /**

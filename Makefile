@@ -19,3 +19,7 @@ build:
 
 install:
 	docker-compose run php bash -c "cp -n '.env.example' '.env'; php composer.phar install"
+
+
+test:
+	docker-compose run php bash -c "./vendor/bin/phpunit"

@@ -3,7 +3,6 @@
 namespace App\Repositores\Contracts;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 interface CategoryRepositoryInterface {
 
@@ -15,9 +14,9 @@ interface CategoryRepositoryInterface {
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
+     * @param array $data
      */
-    public function store(Request $request) : Category;
+    public function store(array $data) : Category;
 
     /**
      * Show the specified resource.
@@ -28,10 +27,10 @@ interface CategoryRepositoryInterface {
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
+     * @param array $data
      * @param int $id
      */
-    public function update(Request $request, $id) : Category;
+    public function update(array $data, $id) : Category;
 
     /**
      * Remove the specified resource from storage.

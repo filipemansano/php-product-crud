@@ -3,7 +3,6 @@
 namespace App\Repositores\Eloquent;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
 use App\Repositores\Contracts\ProductRepositoryInterface;
 
 class ProductRepository implements ProductRepositoryInterface {
@@ -27,18 +26,15 @@ class ProductRepository implements ProductRepositoryInterface {
         return $this->entity->findOrFail($id);
     }
 
-    public function store(Request $request) : Product
+    public function store(array $data) : Product
     {
-        $data = $request->all();
         $product = $this->entity->create($data);
 
         return $product;
     }
 
-    public function update(Request $request, $id) : Product
+    public function update(array $data, $id) : Product
     {
-        $data = $request->all();
-
         $product = $this->entity->findOrFail($id);
         $product->update($data);
 

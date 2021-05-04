@@ -3,7 +3,6 @@
 namespace App\Repositores\Eloquent;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Repositores\Contracts\CategoryRepositoryInterface;
 
 class CategoryRepository implements CategoryRepositoryInterface {
@@ -27,18 +26,15 @@ class CategoryRepository implements CategoryRepositoryInterface {
         return $this->entity->findOrFail($id);
     }
 
-    public function store(Request $request) : Category
+    public function store(array $data) : Category
     {
-        $data = $request->all();
         $product = $this->entity->create($data);
 
         return $product;
     }
 
-    public function update(Request $request, $id) : Category
+    public function update(array $data, $id) : Category
     {
-        $data = $request->all();
-
         $product = $this->entity->findOrFail($id);
         $product->update($data);
 

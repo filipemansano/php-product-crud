@@ -17,7 +17,7 @@ class ProductObserver
         if($product->isDirty('quantity')){
 
             $currentQuantity = $product->getOriginal('quantity');
-            $product->quantity = $currentQuantity + $product->quantity;
+            $product->quantity += $currentQuantity;
         }
 
     }

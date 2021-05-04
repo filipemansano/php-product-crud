@@ -41,7 +41,7 @@ class ProductController extends Controller
      */
     public function store(ProductFormRequest $request)
     {
-        return $this->entity->store($request);
+        return $this->entity->store($request->all());
     }
 
     /**
@@ -66,7 +66,7 @@ class ProductController extends Controller
      */
     public function update(ProductFormRequest $request, string $id)
     {
-        return $this->entity->update($request, (int) $id);
+        return $this->entity->update($request->all(), (int) $id);
     }
 
     /**

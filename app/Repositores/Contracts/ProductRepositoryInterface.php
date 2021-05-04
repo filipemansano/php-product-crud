@@ -3,7 +3,6 @@
 namespace App\Repositores\Contracts;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
 
 interface ProductRepositoryInterface {
 
@@ -15,9 +14,9 @@ interface ProductRepositoryInterface {
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
+     * @param array $data
      */
-    public function store(Request $request) : Product;
+    public function store(array $data) : Product;
 
     /**
      * Show the specified resource.
@@ -28,10 +27,10 @@ interface ProductRepositoryInterface {
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
+     * @param array $data
      * @param int $id
      */
-    public function update(Request $request, $id) : Product;
+    public function update(array $data, $id) : Product;
 
     /**
      * Remove the specified resource from storage.
