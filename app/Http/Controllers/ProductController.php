@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use Illuminate\Http\Request;
+use App\Http\Requests\ProductFormRequest;
+use App\Repositores\Contracts\ProductRepositoryInterface;
 
 class ProductController extends Controller
 {
+    protected ProductRepositoryInterface $entity;
+
+    public function __construct(ProductRepositoryInterface $entity){
+        $this->entity = $entity;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,51 +20,51 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return $this->entity->index();
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  ProductFormRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductFormRequest $request)
     {
-        //
+        return $this->entity->store($request);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  int  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(int $product)
     {
-        //
+        return $this->entity->show($product);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  ProductFormRequest  $request
+     * @param  int  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductFormRequest $request, int $product)
     {
-        //
+        return $this->entity->update($request, $product);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  int  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(int $product)
     {
-        //
+        return $this->entity->destroy($product);
     }
 }
