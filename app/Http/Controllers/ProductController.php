@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProductFormRequest;
 use App\Repositores\Contracts\ProductRepositoryInterface;
 
+/**
+ * @group  Product management
+ *
+ * APIs for managing products
+ */
 class ProductController extends Controller
 {
     protected ProductRepositoryInterface $entity;
@@ -14,7 +19,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of products.
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,7 +29,12 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly product.
+     * @bodyParam  name string required Name of product. Example: Sabão em Pó
+     * @bodyParam  quantity int required The id of the user. Example: 2
+     * @bodyParam  category_id int required The id of category. Example: 1
+     *
+     * @transformerModel  \App\Models\Product
      *
      * @param  ProductFormRequest  $request
      * @return \Illuminate\Http\Response
@@ -35,36 +45,38 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified product.
+     * @urlParam  id required The ID of the product. Example: 1
      *
-     * @param  int  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(int $product)
+    public function show(string $id)
     {
-        return $this->entity->show($product);
+        return $this->entity->show((int) $id);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified product.
+     * @urlParam  id required required The ID of the product. Example: 1
+     * @bodyParam  name string required Name of product. Example: Sabão em Pó
+     * @bodyParam  quantity int required The id of the user. Example: 2
+     * @bodyParam  category_id int required The id of category. Example: 1
      *
-     * @param  ProductFormRequest  $request
-     * @param  int  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductFormRequest $request, int $product)
+    public function update(ProductFormRequest $request, string $id)
     {
-        return $this->entity->update($request, $product);
+        return $this->entity->update($request, (int) $id);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified product.
+     * @urlParam  id required required The ID of the product. Example: 1
      *
-     * @param  int  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(int $product)
+    public function destroy(string $id)
     {
-        return $this->entity->destroy($product);
+        return $this->entity->destroy((int) $id);
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class ProductFormRequest extends FormRequest
+class CategoryFormRequest extends FormRequest
 {
     /**
      * Indicates if the validator should stop on the first rule failure.
@@ -33,15 +33,12 @@ class ProductFormRequest extends FormRequest
     {
 
         return [
-            'name' => 'required|max:100',
-            'quantity' => 'required|integer|min:0',
-            'category_id' => [
+            'name' => [
                 'required',
-                'exists:category,id',
-                'unique' => Rule::unique('product')->ignore(request()->route('id'))->where(function ($query) {
+                'max:100',
+                'unique' => Rule::unique('category')->ignore(request()->route('id'))->where(function ($query) {
                     return $query->where([
                         'name' => request()->get('name'),
-                        'category_id' => request()->get('category_id'),
                     ]);
                 })
             ]
@@ -57,8 +54,6 @@ class ProductFormRequest extends FormRequest
     {
         return [
             'name' => 'nome',
-            'quantity' => 'quantidade',
-            'category_id' => 'categoria',
         ];
     }
 
@@ -70,11 +65,8 @@ class ProductFormRequest extends FormRequest
     public function messages()
     {
         return [
-            '*.required' => 'O campo :attribute é obrigatório',
-            'quantity.integer' => 'quantidade deve ser um numero inteiro',
-            'quantity.min' => 'quantidade deve ser um numero maior que 0',
-            'category_id.exists' => 'categoria informada não existe',
-            'category_id.unique' => 'já existe um nome atribuido a essa categoria',
+            'name.required' => 'O campo nome é obrigatório',
+            'name.unique' => 'Já existe categoria com esse nome',
         ];
     }
 }
