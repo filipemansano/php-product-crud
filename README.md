@@ -54,3 +54,6 @@ Run application and acess [this link](http://localhost:8000/docs/index.html).
 
 ## Tests
 to run tests execute command: `make test`
+
+## Windows user
+to execute command `make` please see this [tutorial](http://gnuwin32.sourceforge.net/packages/make.htm), or open `Makefile` file and copy-paste commands in your terminal.
