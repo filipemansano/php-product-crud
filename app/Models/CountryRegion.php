@@ -14,7 +14,7 @@ class CountryRegion extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'name', 'initials'
+        'id', 'name', 'initials'
     ];
 
     public function UFS() {
