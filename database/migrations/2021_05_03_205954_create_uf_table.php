@@ -15,8 +15,8 @@ class CreateUfTable extends Migration
     {
         Schema::create('uf', function (Blueprint $table) {
             $table->id();
-            $table->string('sigla', 2)->nullable(false)->unique();
-            $table->string('nome', 100)->nullable(false)->unique();
+            $table->string('initials', 2)->nullable(false)->unique();
+            $table->string('name', 100)->nullable(false)->unique();
             $table->foreignId('country_region_id');
             $table->timestamps();
 

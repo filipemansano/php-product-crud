@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\UF;
 use Illuminate\Database\Seeder;
 
-class CategorySeeder extends Seeder
+class UFSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,8 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        UF::factory()
+            ->count(4)
+            ->create();
     }
 }

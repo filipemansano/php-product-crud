@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class CountryRegion extends Model
 {
     use HasFactory;
+
+    protected $table = 'country_region';
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'name', 'initials'
+    ];
+
+    public function UFS() {
+        $this->hasMany(UF::class, 'country_region_id');
+    }
 }

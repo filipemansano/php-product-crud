@@ -15,8 +15,8 @@ class CreateCountryRegionTable extends Migration
     {
         Schema::create('country_region', function (Blueprint $table) {
             $table->id();
-            $table->string('sigla', 2)->nullable(false)->unique();
-            $table->string('nome', 100)->nullable(false)->unique();
+            $table->string('initials', 2)->nullable(false)->unique();
+            $table->string('name', 100)->nullable(false)->unique();
         });
     }
 

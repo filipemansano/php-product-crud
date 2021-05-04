@@ -9,7 +9,7 @@ bash:
 	docker-compose exec app sh
 
 migrate:
-	docker-compose run php php artisan migrate
+	docker-compose run php bash -c "php artisan migrate:refresh; php artisan db:seed --class=ProductSeeder"
 
 migrate-remote:
 	vendor/bin/bref cli product-crud-dev-artisan -- migrate --force
