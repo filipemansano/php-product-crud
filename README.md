@@ -8,6 +8,7 @@ this application makes use of the following features of the framework
 - migration
 - seeder
 - factories
+- middleware
 - commands
 - observer
 - validation
